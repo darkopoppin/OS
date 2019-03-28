@@ -17,7 +17,7 @@ class myShell(cmd.Cmd):
     def do_environ(self, arg):
         environ()
 
-    def default(self, arg):
+    def default(self, arg):#dasdsa
         program(arg)
 
 def main():
