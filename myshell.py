@@ -8,17 +8,21 @@ class myShell(cmd.Cmd):
         cd(arg)
         self.prompt = pwd()
     
-    def do_dir(self, arg):
-        dir()
+    def do_dir(self, arg): #list the files and directories by calling dir()
+        dir()              #from commands.py 
     
-    def do_clr(self, arg):
+    def do_clr(self, arg): #clears the screen by calling clr() from commands.py
         clr()
 
     def do_environ(self, arg):
         environ()
 
-    def default(self, arg):#dasdsa
+    def default(self, arg): #if none of the above commands is entered -> try invoking
+        arg = arg.split()   #a program 
         program(arg)
+    
+    def emptyline(self): #when no command is entered - do nothing
+        pass 
 
 def main():
     myShell().cmdloop()
