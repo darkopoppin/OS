@@ -16,6 +16,9 @@ class myShell(cmd.Cmd):
 
     def do_environ(self, arg):
         environ()
+    
+    def do_echo(self, arg):
+        echo(arg)
 
     def default(self, arg): #if none of the above commands is entered -> try invoking
         arg = arg.split()   #a program 
@@ -23,7 +26,7 @@ class myShell(cmd.Cmd):
     
     def emptyline(self): #when no command is entered - do nothing
         pass 
-
+    
 def main():
     myShell().cmdloop()
 
