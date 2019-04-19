@@ -38,22 +38,32 @@ def program(name):
         print("No such program or command")
 
 def printf(dirs):
-    length = len(dirs)
+    #print(len(dirs))
     columns = math.ceil(len(dirs)/3)
-    fcolumn = len(max(dirs[0:columns], key=len))
-    print(dirs[0:columns])
-    scolumn = len(max(dirs[columns:columns+3]))
+    #print("columns " + str(columns))
+    fcolumn = dirs[0:columns]
+    #print("fcolumn " + str(fcolumn))
+    max_f = get_max_len(fcolumn)
+    #print(max_f)
+    scolumn = dirs[columns:columns*2]
+    #print("scolumn " + str(scolumn))
+    max_s = get_max_len(scolumn)
+    tcolumn = dirs[columns*2:]
+    #print("tcolumn" + str(tcolumn))
 
-    while length != 0:
-        if length == 1:
-            print(dirs.pop())
-        elif length == 2:
-            first = dirs.pop(0)
-            second = dirs.pop(0)
-            print("{!s} {!s}".format(first + " "*(fcolumn-len(first)+1), third))
+    while len(fcolumn) != 0:
+        if len(fcolumn) == 1 and len(scolumn) == 0 and len(tcolumn) == 0:
+            print(fcolumn.pop(0))
+        elif len(fcolumn) >= 1 and len(scolumn) >= 1 and len(tcolumn) == 0:
+            first = fcolumn.pop(0)
+            second = scolumn.pop(0)
+            print("{!s} {!s}".format(first + " "*(max_f - len(first)+1), second))
         else:
-            first = dirs.pop(0)
-            second = dirs.pop(columns)
-            third = dirs.pop(columns*2)
-            print("{!s} {!s} {!s}".format(first + " "*(fcolumn-len(first)+1), second + " "*(scolumn-len(second)+1), third))
+            first = fcolumn.pop(0)
+            second = scolumn.pop(0)
+            third = tcolumn.pop(0)
+            print("{!s} {!s} {!s}".format(first + " "*(max_f-len(first)+4), second + " "*(max_s-len(second)+4), third))
         length = len(dirs)
+
+def get_max_len(column):
+    return len(max(column, key=len))
