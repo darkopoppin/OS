@@ -8,7 +8,7 @@ def cd(directory):
 def clr():
     subprocess.call("clear")
 
-def dir():
+def dir():#Prints the current
    dirs = os.listdir()
    for dir in dirs:
        print(dir)
@@ -18,8 +18,8 @@ def environ():
     for key in map:
         print("{} - {}".format(key,map[key]))
 
-def pwd():
+def pwd():#Returns the current directory formatted as a prompt 
     return(os.getcwd() + "> ")
 
-def program(name):
-    subprocess.call(name)
+def program(name): #Launches the program by creating a subprocess
+    subprocess.call(name) 

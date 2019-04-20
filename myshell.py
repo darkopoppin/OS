@@ -20,6 +20,9 @@ class myShell(cmd.Cmd):
     def default(self, arg):#dasdsa
         program(arg)
 
+    def emptyline(self):
+        pass #If 'enter' key is pressed, dont do anything
+
 def main():
     myShell().cmdloop()
 
