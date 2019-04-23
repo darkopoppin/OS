@@ -1,0 +1,83 @@
+NAME
+----
+    myshell - a shell (command line interpreter)
+
+SYNOPSIS
+    myshell [argument]
+
+DESCRIPTION
+-----------
+    myshell is a simple command line interpeter supporting only the most essential commands and functions. The primary purpose of a shell is to translate command lines typed into system actions, e.g. invocation of other programs.
+
+BASICS
+------
+    Commands in the UNIX system consist of a list of words. The first word is the command name and the rest are called arguments that are given to the command itself when it's executed.
+    Example:
+    
+    $ python 
+    
+        is a command to launch the python terminal.
+    
+    $ python --version
+    Python 2.7.15rc1
+
+        Here '--version' is an argument to python. This returns the version of python.
+
+COMMANDS
+--------
+
+    cd [directory] 
+    ``````````````    
+        Returns the path of the working directory or changes the current directory to [directory].
+
+    dir [directory]
+    ```````````````    
+        Lists the contents of the working directory or [directory]. [directory] could be a full path        or a directory in the working one.
+    
+    [program_name]
+    ``````````````
+        Invokes the program [program_name].
+
+    clr
+    ```
+        Clears the screen.
+
+    environ
+    ```````    
+        Lists the string environment.
+
+    echo [text]
+    ```````````
+        Displays [text] on the screen.
+
+    pause
+    `````
+        Pauses the operation of the shell.
+
+    quit
+    ````
+        Exits the shell.
+
+    help
+    ````
+        Displays this manual.
+
+OUTPUT
+------
+    The shell supports output redirection of some commands (cd, dir, help, echo, environ, program invokation) and this allows the output of a command to be redirected to a file, rather than displayed in the shell. The output can be redirected with the follwing syntax:
+
+    > [name]
+    ````````
+        File [name] is created if it doesn't exist. If it does exist, it is overwritten.
+
+    >> [name]
+    `````````
+        File [name] is created if it doesn't exist. If it does exist, the output is appended to it.
+
+    Example:
+        
+        $ dir myfolder > contents.txt
+
+BACKGROUND EXECUTION
+--------------------
+    Background execution is allowed in the shell. 
